@@ -7,14 +7,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class CardFlipActivity extends AppCompatActivity {
     ImageView cardFront, cardBack;
 
-    private AnimatorSet mSetRightOut;
-    private AnimatorSet mSetLeftIn;
-    private boolean mIsBackVisible = false;
+    private AnimatorSet cardOutAnim;
+    private AnimatorSet cardInAnim;
+    private boolean isFace = true;
 
 
 
@@ -35,24 +36,26 @@ public class CardFlipActivity extends AppCompatActivity {
 
 
     private void loadAnimations() {
-        mSetRightOut = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.card_out);
-        mSetLeftIn = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.card_in);
+        cardOutAnim = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.card_out);
+        cardInAnim = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.card_in);
     }
 
 
     public void flipCard(View view) {
-        if (!mIsBackVisible) {
-            mSetRightOut.setTarget(cardFront);
-            mSetLeftIn.setTarget(cardBack);
-            mSetRightOut.start();
-            mSetLeftIn.start();
-            mIsBackVisible = true;
+        Button b = (Button) view;
+        if (isFace) {
+            cardOutAnim.setTarget(cardFront);
+            cardInAnim.setTarget(cardBack);
+            cardOutAnim.start();
+            cardInAnim.start();
+            isFace = false;
+            b.setText("Right Out");
         } else {
-            mSetRightOut.setTarget(cardBack);
-            mSetLeftIn.setTarget(cardFront);
-            mSetRightOut.start();
-            mSetLeftIn.start();
-            mIsBackVisible = false;
+            cardOutAnim.setTarget(cardBack);
+            cardInAnim.setTarget(cardFront);
+            cardOutAnim.start();
+            cardInAnim.start();
+            isFace = true;
         }
     }
 

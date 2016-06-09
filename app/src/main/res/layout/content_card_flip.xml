@@ -22,16 +22,16 @@
     <ImageView
         android:id="@+id/imgBack"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="450dp"
         android:layout_centerHorizontal="true"
-        android:alpha="0"
+
         android:tint="@color/colorPrimary"
         android:src="@drawable/rectangle"/>
 
     <ImageView
         android:id="@+id/imgFront"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="450dp"
         android:tint="@color/colorAccent"
         android:layout_centerHorizontal="true"
         android:src="@drawable/rectangle"/>
