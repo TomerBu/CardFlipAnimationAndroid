@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="layout"
+            type="tomerbu.edu.bindingdemo.Layout" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="tomerbu.edu.bindingdemo.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{layout::alpha}"
+            android:text="@{layout.alpha}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{layout::translate}"
+            android:text="@{layout.translate}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{layout::rotate}"
+            android:text="@{layout.rotate}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{layout::scale}"
+            android:text="@{layout.scale}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="30dp"
+            android:hint="User Name..."
+            android:typeface="serif"
+            android:id="@+id/etName"
+            android:background="@drawable/banner"/>
+
+        <EditText
+            android:typeface="serif"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="30dp"
+            android:hint="password..."
+            android:id="@+id/etPass"
+            android:background="@drawable/banner"/>
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{layout::background}"
+            android:text="@string/btnlogin" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/hero"
+            android:contentDescription="@string/hero" />
+
+    </LinearLayout>
+</layout>
